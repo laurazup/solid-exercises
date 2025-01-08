@@ -1,3 +1,5 @@
+package principioSegregacaoInterface;
+
 public interface Funcionario {
     void programar();
     void atenderCliente();

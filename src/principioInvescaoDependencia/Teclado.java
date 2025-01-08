@@ -1,3 +1,5 @@
+package principioInvescaoDependencia;
+
 public class Teclado {
     public void digitar() {
         System.out.println("Digitando...");

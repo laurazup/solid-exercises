@@ -3,11 +3,11 @@
 ## Exercício 1: Single Responsibility Principle (SRP)
 
 ### Enunciado:
-Você foi contratado por um banco para criar um sistema que gere relatórios financeiros. Atualmente, a classe RelatorioFinanceiro faz duas coisas: gera o relatório e envia por e-mail. Refatore o código para que ele siga o Princípio da Responsabilidade Única (SRP).
+Você foi contratado por um banco para criar um sistema que gere relatórios financeiros. Atualmente, a classe principioResponsabilidadeUnica.RelatorioFinanceiro faz duas coisas: gera o relatório e envia por e-mail. Refatore o código para que ele siga o Princípio da Responsabilidade Única (SRP).
 
 Código inicial (errado):
 ```java
-public class RelatorioFinanceiro {
+public class principioResponsabilidadeUnica.RelatorioFinanceiro {
     public void gerarRelatorio() {
         System.out.println("Gerando relatório financeiro...");
     }
@@ -30,7 +30,7 @@ Você está desenvolvendo uma calculadora para o banco que realiza operações b
 
 Código inicial (errado):
 ```java
-public class Calculadora {
+public class principioAbertoFechado.Calculadora {
     public int calcular(int a, int b, String operacao) {
         if (operacao.equals("soma")) {
             return a + b;
@@ -45,16 +45,16 @@ public class Calculadora {
 ### Tarefa:
 - Crie uma interface Operacao.
 - Implemente classes separadas para cada operação (Soma, Subtração, Multiplicação).
-- Refatore a classe Calculadora para usar a interface.
+- Refatore a classe principioAbertoFechado.Calculadora para usar a interface.
 
 ## Exercício 3: Liskov Substitution Principle (LSP)
 
 ### Enunciado:
-Você está criando um sistema para calcular áreas de formas geométricas. Atualmente, a classe Quadrado herda de Retangulo, mas isso está causando problemas porque o comportamento de Quadrado não é consistente com o de Retangulo. Refatore o código para que ele siga o Princípio da Substituição de Liskov (LSP).
+Você está criando um sistema para calcular áreas de formas geométricas. Atualmente, a classe principioSubstituicaoLiskov.Quadrado herda de principioSubstituicaoLiskov.Retangulo, mas isso está causando problemas porque o comportamento de principioSubstituicaoLiskov.Quadrado não é consistente com o de principioSubstituicaoLiskov.Retangulo. Refatore o código para que ele siga o Princípio da Substituição de Liskov (LSP).
 
 Código inicial (errado):
 ```java
-public class Retangulo {
+public class principioSubstituicaoLiskov.Retangulo {
     protected int largura;
     protected int altura;
 
@@ -71,7 +71,7 @@ public class Retangulo {
     }
 }
 
-public class Quadrado extends Retangulo {
+public class principioSubstituicaoLiskov.Quadrado extends principioSubstituicaoLiskov.Retangulo {
     @Override
     public void setLargura(int largura) {
         this.largura = largura;
@@ -88,21 +88,21 @@ public class Quadrado extends Retangulo {
 
 ### Tarefa:
 - Crie uma interface Forma com o método getArea().
-- Implemente classes separadas para Retangulo e Quadrado, sem herança direta entre elas.
+- Implemente classes separadas para principioSubstituicaoLiskov.Retangulo e principioSubstituicaoLiskov.Quadrado, sem herança direta entre elas.
 
 ## Exercício 4: Interface Segregation Principle (ISP)
 
 ### Enunciado:
-Você está desenvolvendo um sistema para gerenciar funcionários de um banco. Atualmente, a interface Funcionario força todos os funcionários a implementarem métodos que nem todos utilizam. Refatore o código para que ele siga o Princípio da Segregação de Interfaces (ISP).
+Você está desenvolvendo um sistema para gerenciar funcionários de um banco. Atualmente, a interface principioSegregacaoInterface.Funcionario força todos os funcionários a implementarem métodos que nem todos utilizam. Refatore o código para que ele siga o Princípio da Segregação de Interfaces (ISP).
 
 Código inicial (errado):
 ```java
-public interface Funcionario {
+public interface principioSegregacaoInterface.Funcionario {
     void programar();
     void atenderCliente();
 }
 
-public class Desenvolvedor implements Funcionario {
+public class principioSegregacaoInterface.Desenvolvedor implements principioSegregacaoInterface.Funcionario {
     public void programar() {
         System.out.println("Programando...");
     }
@@ -112,7 +112,7 @@ public class Desenvolvedor implements Funcionario {
     }
 }
 
-public class Atendente implements Funcionario {
+public class principioSegregacaoInterface.Atendente implements principioSegregacaoInterface.Funcionario {
     public void programar() {
         // Não faz sentido para um atendente
     }
@@ -124,35 +124,35 @@ public class Atendente implements Funcionario {
 ```
 
 ### Tarefa:
-- Separe a interface Funcionario em interfaces menores, como Programador e Atendente.
+- Separe a interface principioSegregacaoInterface.Funcionario em interfaces menores, como Programador e principioSegregacaoInterface.Atendente.
 - Faça com que cada classe implemente apenas a interface que faz sentido para ela.
 
 ## Exercício 5: Dependency Inversion Principle (DIP)
 
 ### Enunciado:
-Você está criando um sistema para gerenciar dispositivos de entrada de um computador. Atualmente, a classe Computador depende diretamente da classe Teclado, o que dificulta a substituição por outros dispositivos, como um mouse. Refatore o código para que ele siga o Princípio da Inversão de Dependência (DIP).
+Você está criando um sistema para gerenciar dispositivos de entrada de um computador. Atualmente, a classe principioInvescaoDependencia.Computador depende diretamente da classe principioInvescaoDependencia.Teclado, o que dificulta a substituição por outros dispositivos, como um mouse. Refatore o código para que ele siga o Princípio da Inversão de Dependência (DIP).
 
 Código inicial (errado):
 ```java
-public class Teclado {
+public class principioInvescaoDependencia.Teclado {
     public void digitar() {
         System.out.println("Digitando...");
     }
 }
 
-public class Computador {
-    private Teclado teclado;
+public class principioInvescaoDependencia.Computador {
+    private principioInvescaoDependencia.Teclado teclado;
 
-    public Computador() {
-        this.teclado = new Teclado();
+    public principioInvescaoDependencia.Computador() {
+        this.teclado = new principioInvescaoDependencia.Teclado();
     }
 }
 ```
 
 ### Tarefa:
 - Crie uma interface DispositivoEntrada com o método usar().
-- Faça com que Teclado implemente essa interface.
-- Modifique a classe Computador para depender da interface, e não da implementação concreta.
+- Faça com que principioInvescaoDependencia.Teclado implemente essa interface.
+- Modifique a classe principioInvescaoDependencia.Computador para depender da interface, e não da implementação concreta.
 
 ## Exercício Bônus: Projeto Final com SOLID
 

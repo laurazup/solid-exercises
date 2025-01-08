@@ -1,3 +1,5 @@
+package principioAbertoFechado;
+
 public class Calculadora {
     public int calcular(int a, int b, String operacao) {
         if (operacao.equals("soma")) {

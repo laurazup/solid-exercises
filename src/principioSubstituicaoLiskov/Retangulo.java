@@ -1,3 +1,5 @@
+package principioSubstituicaoLiskov;
+
 public class Retangulo {
     protected int largura;
     protected int altura;
