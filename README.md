@@ -168,5 +168,3 @@ Crie um sistema para gerenciar contas bancárias que siga os princípios SOLID. 
 - Use o LSP para garantir que todas as contas possam ser tratadas de forma consistente.
 - Use o ISP para criar interfaces específicas para cada funcionalidade.
 - Use o DIP para que o sistema dependa de abstrações, e não de implementações concretas.
-- Use os 5 principios de SOLID
-
