@@ -1,0 +1,10 @@
+# Ignorar arquivos compilados
+*.class
+
+# Ignorar arquivos de configuração da IDE
+.idea/
+*.iml
+
+# Ignorar outros arquivos desnecessários
+*.log
+*.tmp
