@@ -1,16 +1,60 @@
 package bonus;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 public class Banco {
-    public Contas criarConta(String tipoConta, String titular, String numeroConta,  double saldoInicial, Notificacao notificacao){
-        if (tipoConta.equalsIgnoreCase("Corrente")){
-            return new ContaCorrente(tipoConta, titular, numeroConta, saldoInicial, notificacao);
-        }
-        if (tipoConta.equalsIgnoreCase("Poupança")){
-            return new ContaPoupanca(tipoConta, titular, numeroConta, saldoInicial, notificacao);
-        }
-        else {
-            throw new IllegalArgumentException("Tipo de conta não existe!");
-        }
+
+    private List<Conta> contas;
+    private Scanner scanner;
+
+    public Banco() {
+        this.contas = new ArrayList<>();
+        this.scanner = new Scanner(System.in);
     }
 
+    public void criarConta(){
+        System.out.println("Qual vai ser o Tipo da Conta?");
+        System.out.println("1 - Conta Corrente");
+        System.out.println("2 - Conta Poupança");
+        int escolha = scanner.nextInt();
+        scanner.nextLine(); // quebra de linha
+
+        System.out.println("Vai depositar algum dinheiro na sua conta? (S/N)");
+        var simNao = scanner.nextLine();
+
+        double saldoInicial = 0.0;
+        if (simNao.equalsIgnoreCase("S")){
+            System.out.println("Qual o valor que deseja?");
+            saldoInicial = scanner.nextDouble();
+        } else {
+            System.out.println("Não vai depositar nenhum dinheiro no momento!");
+        }
+
+        Conta conta = null;
+        if (escolha == 1){
+            conta = new ContaCorrente(saldoInicial);
+        }
+        else if (escolha == 2){
+            conta = new ContaPoupanca(saldoInicial);
+        }
+        else {
+            System.out.println("Esse tipo de conta não existe!");
+            return;
+        }
+
+        contas.add(conta);
+        System.out.println("Bem-Vindo ao Banco da Zup. Conta criada com sucesso!");
+    }
+
+    public void listarContas(){
+        if (contas.isEmpty()){
+            System.out.println("Nenhuma Conta Encontrada!");
+        } else {
+            for (Conta conta : contas){
+                conta.extrato();
+            }
+        }
+    }
 }
