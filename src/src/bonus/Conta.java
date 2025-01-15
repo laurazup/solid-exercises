@@ -4,10 +4,13 @@ public abstract class Conta {
     private static int contador = 1;
     private int id;
     private double saldo;
+    private Cliente cliente;
 
-    public Conta(double saldoInicial) {
+
+    public Conta(double saldoInicial, Cliente cliente) {
         this.id = contador++;
         this.saldo = saldoInicial;
+        this.cliente = cliente;
     }
 
     public void depositar(double valor){
@@ -29,6 +32,8 @@ public abstract class Conta {
 
     public void extrato(){
         System.out.println("ID da Conta: " + id);
+        System.out.println("Cliente da Conta: " + cliente.getNome());
+        System.out.println("CPF do Cliente: " + cliente.getCpf());
         System.out.println("Tipo da Conta: " + getTipo());
         System.out.println("Saldo Atual: " + saldo);
     }
