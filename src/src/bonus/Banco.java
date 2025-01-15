@@ -15,6 +15,20 @@ public class Banco {
     }
 
     public void criarConta(){
+        System.out.println("== Oi! Aqui é a IA do Banco ==");
+
+        System.out.print(" - Digite o seu nome: ");
+        String nome = scanner.nextLine();
+
+        System.out.print(" - Digite o seu CPF: ");
+        String cpf = scanner.nextLine();
+
+        System.out.print(" - Digite o seu RG: ");
+        String rg = scanner.nextLine();
+
+        System.out.print(" - Digite a data de hoje: ");
+        String data = scanner.nextLine();
+
         System.out.println("Qual vai ser o Tipo da Conta?");
         System.out.println("1 - Conta Corrente");
         System.out.println("2 - Conta Poupança");
