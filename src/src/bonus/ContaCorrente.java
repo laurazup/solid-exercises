@@ -2,8 +2,8 @@ package bonus;
 
 public class ContaCorrente extends Conta{
 
-    public ContaCorrente(double saldoInicial) {
-        super(saldoInicial);
+    public ContaCorrente(double saldoInicial, Cliente cliente) {
+        super(saldoInicial, cliente);
     }
 
     @Override
