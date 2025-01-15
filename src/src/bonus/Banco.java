@@ -1,5 +1,7 @@
 package bonus;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -29,6 +31,11 @@ public class Banco {
         System.out.print(" - Digite a data de hoje: ");
         String data = scanner.nextLine();
 
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate dataCriada = LocalDate.parse(data, formatter);
+
+        Cliente cliente = new Cliente(nome,cpf,rg, dataCriada);
+
         System.out.println("Qual vai ser o Tipo da Conta?");
         System.out.println("1 - Conta Corrente");
         System.out.println("2 - Conta Poupança");
@@ -48,10 +55,10 @@ public class Banco {
 
         Conta conta = null;
         if (escolha == 1){
-            conta = new ContaCorrente(saldoInicial);
+            conta = new ContaCorrente(saldoInicial, cliente);
         }
         else if (escolha == 2){
-            conta = new ContaPoupanca(saldoInicial);
+            conta = new ContaPoupanca(saldoInicial, cliente);
         }
         else {
             System.out.println("Esse tipo de conta não existe!");
